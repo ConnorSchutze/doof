@@ -2,22 +2,24 @@ import QtQuick
 
 Item {
     id: root
-    width: parent ? parent.width * 2/3 : 265
+    width: buttonWidth
     height: 50
     anchors.horizontalCenter: parent.horizontalCenter
 
+    property int buttonWidth: parent ? parent.width * 2/3 : 265
+    property string color: "#000000"
     property string text: "Change"
     signal clicked
 
     Rectangle {
         anchors.fill: parent
-        color: "#000000"
+        color: root.color
         radius: 10
 
         Text {
             anchors.centerIn: parent
             text: root.text
-            color: "#FFFFFF"
+            color: root.color === "#000000" ? "#FFFFFF" : "#000000"
         }
         MouseArea {
             anchors.fill: parent

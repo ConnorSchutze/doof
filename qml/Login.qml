@@ -36,7 +36,7 @@ Item {
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
                 Text {
-                    text: "Sign in to continue"
+                    text: "Sign in to continue, enjoy making recipes"
                     color: "#000000"
                     font.pixelSize: 14
                     anchors.horizontalCenter: parent.horizontalCenter

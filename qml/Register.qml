@@ -36,7 +36,7 @@ Item {
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
                 Text {
-                    text: "Create a new account"
+                    text: "Create a new account in just a few minutes"
                     color: "#000000"
                     font.pixelSize: 14
                     anchors.horizontalCenter: parent.horizontalCenter

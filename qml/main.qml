@@ -10,22 +10,62 @@ ApplicationWindow {
     title: "Doof"
     font.family: "Roboto"
 
-    StackView {
-        id: mainStack
+    Rectangle {
+        id: screen
         anchors.fill: parent
+        color: "transparent"
 
-        initialItem: Login {
+        // Login page
+        Login {
             id: loginPage
+            visible: screen.state === "login"
+            anchors.fill: parent
             onRegisterClicked: {
-                mainStack.push(registerPage)
+                screen.state = "register"
             }
         }
 
+        // Register page
         Register {
             id: registerPage
+            visible: screen.state === "register"
+            anchors.fill: parent
             onLoginClicked: {
-                mainStack.pop()
+                screen.state = "login"
             }
+        }
+
+        // Recipe page
+        Recipe {
+            id: recipePage
+            visible: screen.state === "recipe"
+            anchors.fill: parent
+        }
+
+        // Define states
+        states: [
+            State {
+                name: "login"
+            },
+            State {
+                name: "register"
+            },
+            State {
+                name: "recipe"
+            }
+        ]
+
+        // Set initial state
+        state: "login"
+    }
+
+    Connections {
+        target: backend
+        function onLoginSuccessSignal() {
+            screen.state = "recipe"
+        }
+        function onLogOutSignal() {
+            screen.state = "login"
         }
     }
 }

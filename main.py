@@ -1,9 +1,9 @@
 import sys
 import os
+from PySide6.QtCore import *
 from PySide6.QtQml import *
 from PySide6.QtGui import *
 from backend import Backend
-
 
 def main():
     application = QGuiApplication(sys.argv)
@@ -16,7 +16,7 @@ def main():
     engine.load(os.path.join(os.path.dirname(__file__), "./qml/main.qml"))
     if not engine.rootContext():
         sys.exit(-1)
-    
+
     try:
         sys.exit(application.exec())
     except:
