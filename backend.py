@@ -1,5 +1,7 @@
 import json
+import time
 from PySide6.QtCore import QObject, Signal, Slot, Property
+from pathlib import Path
 
 class Backend(QObject):
     loginSuccessSignal = Signal()
@@ -21,14 +23,51 @@ class Backend(QObject):
         self.password = password
         print(f"Login: {username} {password}")
 
+        passphrase = "1234abcd"
+        file_name = "cipher.json"
+
+        message = self.data_from_file("./watch_folder/cipher_response.json")
+
+        self.create_request(passphrase, "decrypt", message, file_name)
+
+        time.sleep(6)
+
+        message = self.data_from_file("./watch_folder/cipher_response.json")
+
+        print(f"password: {self.password}\nmessage: {message}")
+
         # Check Login -> Login Success
         self.loginSuccessSignal.emit()
+
+    def data_from_file(self, file_path):
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+
+        encrypted_message = data.get('message')
+        
+        return  encrypted_message
+
+    def create_request(self, passphrase, mode, message, filename):
+        request_data = {
+            "userID": self.username,
+            "passphrase": passphrase,
+            "mode": mode,
+            "message": message
+        }
+        file_path = Path("./watch_folder") / filename
+        with file_path.open('w') as file:
+            json.dump(request_data, file)
     
     @Slot(str, str)
     def register(self, username, password):
         self.username = username
         self.password = password
         print(f"Register: {username} {password}")
+
+        passphrase = "1234abcd"
+        file_name = "cipher.json"
+
+        self.create_request(passphrase, "encrypt", self.password, file_name)
     
     @Slot()
     def logOut(self):
