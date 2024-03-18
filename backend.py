@@ -7,12 +7,14 @@ class Backend(QObject):
     loginSuccessSignal = Signal()
     logOutSignal = Signal()
 
+    booksChanged = Signal()
     recipeTitleChanged = Signal()
     recipeIngredientsChanged = Signal()
     recipeDirectionsChanged = Signal()
 
     def __init__(self):
         super().__init__()
+        self._books = []
         self._recipe_title = ""
         self._recipe_ingredients = ""
         self._recipe_directions = ""
@@ -22,6 +24,8 @@ class Backend(QObject):
         self.username = username
         self.password = password
         print(f"Login: {username} {password}")
+
+        self.loginSuccessSignal.emit()
 
         passphrase = "1234abcd"
         file_name = "cipher.json"
@@ -34,10 +38,11 @@ class Backend(QObject):
 
         message = self.data_from_file("./watch_folder/cipher_response.json")
 
-        print(f"password: {self.password}\nmessage: {message}")
-
         # Check Login -> Login Success
-        self.loginSuccessSignal.emit()
+        if self.password == message:
+            self.loginSuccessSignal.emit()
+        else:
+            print(f"Login failed - password: {self.password}\tmessage: {message}")
 
     def data_from_file(self, file_path):
         with open(file_path, 'r') as file:
@@ -75,6 +80,10 @@ class Backend(QObject):
         self.password = ""
         print(f"Register: {self.username} {self.password}")
         self.logOutSignal.emit()
+
+    @Property(list, notify=booksChanged)  # Define books as a QML property
+    def books(self):
+        return self._books
     
     @Property(str, notify=recipeTitleChanged)
     def recipeTitle(self):
@@ -133,4 +142,15 @@ class Backend(QObject):
             self.recipeDirectionsChanged.emit()
         except Exception as e:
             print("Error updating recipe:", e)
+
+    @Slot(str)
+    def loadHomeData(self, file_path):     
+        try:
+            with open(file_path, 'r') as file:
+                data = json.load(file)
+                home = data.get("home", {})
+                self._books = home.get("books", [])
+                self.booksChanged.emit()
+        except Exception as e:
+            print("Error loading recipe data:", e)
 

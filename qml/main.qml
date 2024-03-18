@@ -35,6 +35,13 @@ ApplicationWindow {
             }
         }
 
+        // Home page
+        Home {
+            id: homePage
+            visible: screen.state === "home"
+            anchors.fill: parent
+        }
+
         // Recipe page
         Recipe {
             id: recipePage
@@ -49,6 +56,9 @@ ApplicationWindow {
             },
             State {
                 name: "register"
+            },
+            State {
+                name: "home"
             },
             State {
                 name: "recipe"

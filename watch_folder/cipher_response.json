@@ -1,7 +1,7 @@
 {
-    "userID": "User",
+    "userID": "Yo",
     "passphrase": null,
     "mode": "returned_data",
-    "message": "Pass",
+    "message": "pass",
     "keyGenerated": false
 }
