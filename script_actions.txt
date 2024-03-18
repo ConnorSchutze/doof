@@ -1,0 +1,30 @@
+Features:
+
+1. Login
+-> (2:1) Click register button
+-- Microservice --
+-> (3) Enter username and password incorrectly
+-> (5:4) Enter username and password correctly -> 3.
+
+2. Register
+-> (1) Click login button -> 1.
+-> (2) Enter username and password and register
+
+3. Recipe
+-> (1) Edit stuff, then log out -> 1.
+-> (2) Edit
+
+Heuristic:
+
+1. Login in page -> Sign in to continue, enjoy making recipes.
+2. Register page -> Create a new account in just a few minutes.
+3. Recipe page -> Edit
+4. Login page
+5. Login page and register page
+6. Login page and register page
+7. Recipe page
+8. Login page and register page
+
+Quality attribute:
+
+Adjust screen

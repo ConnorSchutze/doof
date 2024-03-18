@@ -61,12 +61,8 @@ Rectangle {
         } else {
             for (var i = 0; i < backend.books.length; ++i) {
                 recipeModel.append({ "name": backend.books[i] })
-                console.log("Added item to recipeModel:", backend.books[i])
             }
         }
-        // Print books to the console
-        console.log("Books:", backend.books)
-        console.log("Recipe Model:", recipeModel)
     }
 
 

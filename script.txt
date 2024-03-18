@@ -1,0 +1,102 @@
+Hello, my name is connor schutze, and this is my portfolio piece, named doof.
+Which is food backwards, since this is a recipe application.
+
+Features:
+
+When you start the application, initially you are sent to the login page. 
+You can traverse between the login page to the register page using the lower button.
+Then back to the login page using the login button on the register page.
+
+On the register page, you can register an account currently for the application,
+this is done by creating a file named cipher.json in my watch folder, and this demonstrates 
+the interaction between my individual project and my partners microservice.
+Basically, my partners microservice will encrypt this data, specifically the password, and save 
+it to a new file, cipher_response.json. Then, if you register on the login page incorrectly, you are unable
+to login in. (Register Again) If you register with the correct information you move onto the recipe page.
+
+In the recipe page you can edit the title, ingredients, and directions for the recipe. When you logout, 
+it takes you back to the login page. If you login once again, you can see that the information changed 
+on the recipe page has been saved. 
+
+Heuristic:
+
+1. On the login page you can see the purpose of the application, showing that the application satisfies the
+first inclusivity heuristic. For the login page states, Sign in to continue, enjoy making recipes.
+
+2. On the register page, you can see the cost of registration, stating that it will take just a few
+minutes to register an account here. This satisfies the second heuristic, because the application
+is stating the cost of registration.
+
+3. On the recipe page, users can edit the recipe page to their liking. This shows the 3rd heuristic because
+the user is able to control the information they encounter here. They can alter the information so the recipe
+can be short or detailed.
+
+4. Going back to the login page, the login UI should feel familiar to many types of software. For this login
+page asks for a username and password with a login button similar to millions of other applications and services.
+This satisfies the 4th heuristic for this is a familiar experience.
+
+5. I can go back and forth between login and registration pages in case I made any mistakes. As well as, I can go
+back to the login page by logging out if I didn't mean to sign in to a specific account and wanted to register another
+account. This satisfies the 5th heuristic for this allows the user to back track.
+
+6. For logging in or registering an account, their are steps explained to guide the user through the experience.
+It asks for a username and password in both pages, as well as describing the purpose above. This satisfies
+the 6th heuristic for I am guiding the user through the account process.
+
+7. On the recipe page, you can either hit enter or click on another section of the recipe page in order to save
+your information to the system. This way the user has multiple actions to take if they are unable to save
+their file with one system. This satisfies the 7th heuristic because the user has multiple methods of saving a file
+showing that that they are able to work around issues with multiple methods.
+
+8. When the user is entering their login information, the text they enter fill in the username and password lines.
+Otherwise, the word username or password shows up. This helps tinkerers slow down and see which information they have
+not yet filled out. This satisfies the 8th heuristic because it protects tkiners from wasting time.
+
+Quality Attribute:
+
+The application is highly portable, showing a quality attribute. I used PySide6 which is a library based
+on the Qt library for C or C++ users. Where this library is used to create applications for many types of operating
+systems, including linux, windows, and mac. The only issue arises on phones/tablets. An addition to its
+portability is the ability to adjust screensize, for there is a minimum screen size only that satisfies the smallest
+available screens for most devices. The screen is adjustable to just about any size about that with out ruining the 
+UI of the application. I was able to do this by customizing all of my qml code to have specific sizes if needed,
+specifically the CButton, which stands for custom button has certain sizes and colors.
+
+Code:
+
+My python code is stored in two files, main.py and backend.py. Where main.py runs and links the backend
+with the qml code. Backend is used to handle login, registration, and saved information. 
+
+There are no obsolete comments, all the comments describe what is currently occuring.
+There is no commented out code, all the code is useful and takes part in the application.
+There are no redundant comments, all comments are unique in the code.
+There are no comments that are over 1 line long. They are all short and concise.
+There is no long function in the program, the longest functon is only 15 lines long and that simply updates the
+information on the recipe page. 
+There is no function with many jobs, all of them perform simply tasks of getting information or saving information.
+The largest function in terms of parameters is using my partners microservice, where his service requires 4 parameters.
+There is no duplicate code, all of the code is useful for specific use cases and no code is similar in specific ways.
+There are no long lines of code, the code only gets longer in situations where it is indented several times,
+the longest line in characters that aren't white spaces is 67.
+There are no inconsistent naming conventions, I named the signals using camelcase which is used for signal objects.
+for other variables I used snakcase consinstely.
+Lastly, there is no vague naming, all of my code is specific to what it does, for example, 
+recipeTitleChanged, tells you exactly what that signal is. Or, _recipe_title, tells you what information
+is stored there exactly.
+
+Ideas:
+
+The course allowed me to gain more knowledge in terms of designing my code. Specifically, the inclusivity heuristics
+seem like a more structured way to develop code for a wider audience. Additionally, learning about the agile
+method of software engineering helped me understand how professional projects are created in groups of invidiuals. 
+Lastly, the section regarding code inspection seems extremely useful so that everyone working on a project
+can write the code in a similar formatted way so it is more readable.
+
+In the future I will practice more design when I code projects for academic work, professional work, or even
+personal projects. The design process of this class was extremelt useful. Additionally, I will practice the agile
+method more to practice for a professional setting, I really enjoyed writing small sections of my code at a time
+rather than implementing the entire project all at once.
+
+The one major insight from this course I gained was, DESIGN, design is alot more important than I thought. I always
+thought in a professional setting people just code and are told what to make. I didn't know how much time went into 
+desinging the code they are writing and thats something I don't prcatice enough.

@@ -25,8 +25,6 @@ class Backend(QObject):
         self.password = password
         print(f"Login: {username} {password}")
 
-        self.loginSuccessSignal.emit()
-
         passphrase = "1234abcd"
         file_name = "cipher.json"
 
@@ -144,7 +142,8 @@ class Backend(QObject):
             print("Error updating recipe:", e)
 
     @Slot(str)
-    def loadHomeData(self, file_path):     
+    def loadHomeData(self, file_path):   
+        """Loads data from home file and store it as a list"""  
         try:
             with open(file_path, 'r') as file:
                 data = json.load(file)

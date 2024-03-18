@@ -37,38 +37,38 @@ Item {
     }
     
     
-    MouseArea {
-        id: previous
-        width: 60
-        anchors.right: logOut.left
+    //MouseArea {
+    //    id: previous
+    //    width: 60
+    //    anchors.right: logOut.left
 
-        onClicked: {
-            root.previous()
-        }
+    //    onClicked: {
+    //        root.previous()
+    //    }
 
-        Text {
-            text: root.previous
-            font.bold: true
-            color: "#FFFFFF"
-            verticalAlignment: Text.AlignVCenter
-        }
-    }
+    //    Text {
+    //        text: root.previous
+    //        font.bold: true
+    //        color: "#FFFFFF"
+    //        verticalAlignment: Text.AlignVCenter
+    //    }
+    //}
     
     
-    MouseArea {
-        id: guide
-        width: 60
-        anchors.right: previous.left
+    //MouseArea {
+    //    id: guide
+    //    width: 60
+    //    anchors.right: previous.left
 
-        onClicked: {
-            root.guide()
-        }
+    //    onClicked: {
+    //        root.guide()
+    //    }
 
-        Text {
-            text: "Guide"
-            font.bold: true
-            color: "#FFFFFF"
-            verticalAlignment: Text.AlignVCenter
-        }
-    }
+    //    Text {
+    //        text: "Guide"
+    //        font.bold: true
+    //        color: "#FFFFFF"
+    //        verticalAlignment: Text.AlignVCenter
+    //    }
+    //}
 }
